@@ -220,7 +220,7 @@ export default function App() {
             <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-black aspect-video hover:border-blue-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/QtyuUi--zgU"
+                src="https://www.youtube.com/embed/5G3aE8NMpSA"
                 title="KIAN VSL"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
