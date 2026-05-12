@@ -367,7 +367,7 @@ export default function App() {
 
       {/* BOOKING - Main final CTA */}
       <div id="booking" className="relative z-10 py-28 px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Første skridt</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
@@ -383,29 +383,14 @@ export default function App() {
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="rounded-3xl border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden p-3 sm:p-4">
-              <div className="w-full rounded-2xl overflow-hidden bg-white border border-white/10">
-                <iframe
-                  src={`${CALENDLY_URL}?embed_domain=kbmediax.dk&embed_type=Inline&hide_gdpr_banner=1&primary_color=2563eb`}
-                  width="100%"
-                  height="790"
-                  scrolling="no"
-                  frameBorder="0"
-                  title="Book kald med KIAN"
-                />
-              </div>
-
-              <div className="mt-6 text-center">
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold text-base hover:opacity-90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.45)] active:scale-95"
-                >
-                  Find en tid
-                  <CalendarDays size={16} />
-                </a>
-              </div>
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white shadow-[0_22px_70px_rgba(0,0,0,0.34)]">
+              <iframe
+                src={`${CALENDLY_URL}?embed_domain=kbmediax.dk&embed_type=Inline&hide_gdpr_banner=1&primary_color=0069ff`}
+                className="block h-[720px] w-full sm:h-[790px]"
+                scrolling="no"
+                frameBorder="0"
+                title="Book kald med KIAN"
+              />
             </div>
           </FadeIn>
         </div>
