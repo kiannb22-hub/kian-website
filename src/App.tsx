@@ -280,7 +280,6 @@ export default function App() {
               {
                 name: 'MGZ',
                 image: './testimonials/mgz.png',
-                avatarClass: '',
                 quote:
                   'Jeg var faktisk lidt i chok, fordi du kom med et flow, og så var jeg sådan der: "Shit, han har styr på hvad han laver, ham der."',
                 delay: 0,
@@ -288,7 +287,6 @@ export default function App() {
               {
                 name: 'VEGA',
                 image: './testimonials/vega.jpg',
-                avatarClass: 'scale-[1.18]',
                 quote:
                   'Du har været der fra starten af. Det har bare givet mig et selvtillidsboost, og det gør jo virkelig noget, at jeg har færdiggjort noget.',
                 delay: 100,
@@ -296,12 +294,11 @@ export default function App() {
               {
                 name: 'Magnus Nonbo',
                 image: './testimonials/magnus-nonbo.jpg',
-                avatarClass: 'scale-[1.55] -translate-x-1 translate-y-1',
                 quote:
                   'Jeg ville have ramt den samme væg hver gang. Men når man har fået vist, hvordan man kommer igennem den væg, så synes jeg, at det gør det meget nemmere.',
                 delay: 200,
               },
-            ].map(({ name, image, avatarClass, quote, delay }) => (
+            ].map(({ name, image, quote, delay }) => (
               <FadeIn key={name} delay={delay}>
                 <div className="h-full p-7 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm flex flex-col gap-5 hover:border-blue-500/25 hover:bg-white/6 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.10)] hover:-translate-y-1">
                   <div className="flex gap-1">
@@ -311,13 +308,11 @@ export default function App() {
                   </div>
                   <p className="text-white/70 text-sm leading-relaxed flex-1 italic">"{quote}"</p>
                   <div className="flex items-center gap-3 pt-2 border-t border-white/8">
-                    <div className="h-11 w-11 rounded-full overflow-hidden border border-blue-300/35 bg-gradient-to-br from-blue-500/50 to-cyan-400/20 shadow-[0_0_18px_rgba(59,130,246,0.22)]">
-                      <img
-                        src={image}
-                        alt={name}
-                        className={`h-full w-full object-cover ${avatarClass}`}
-                      />
-                    </div>
+                    <img
+                      src={image}
+                      alt={name}
+                      className="h-10 w-10 rounded-full object-cover border border-white/10"
+                    />
                     <span className="text-sm font-medium text-white/60">{name}</span>
                   </div>
                 </div>
