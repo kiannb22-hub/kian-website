@@ -6,7 +6,6 @@ import {
   Video,
   Instagram,
   CalendarDays,
-  ChevronDown,
   Star,
   Menu,
   X,
@@ -66,7 +65,6 @@ const INSTAGRAM_URL = 'https://www.instagram.com/';
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [expandedProcess, setExpandedProcess] = useState<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -78,29 +76,6 @@ export default function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
   };
-
-  const processSteps = [
-    {
-      num: '01',
-      title: 'Vi finder din artist-retning',
-      desc: 'Vi starter med din musik, dine referencer og det udtryk, du gerne vil ramme. Sammen finder vi ud af, hvilke beats, flows, vokalvalg, hooks og visuelle idéer der passer til dig, så du får en klar retning at bygge videre på.',
-    },
-    {
-      num: '02',
-      title: 'Vi gør din sang stærkere',
-      desc: 'Vi arbejder med hook, struktur, tekst, levering og detaljer, så sangen bliver skarpere og mere færdig. Du får hjælp til at tage idéen fra halvfærdig til stærk.',
-    },
-    {
-      num: '03',
-      title: 'Vi arbejder sammen i studiet',
-      desc: 'I studiet guider jeg dig gennem indspilning, performance, vokaler og produktion. Du bliver ikke bare optaget — du bliver coachet hele vejen.',
-    },
-    {
-      num: '04',
-      title: 'Du går derfra med klarhed og momentum',
-      desc: 'Du går derfra med mere ro i hovedet, mere retning og et tydeligere næste skridt. Ikke bare inspiration — men reel fremdrift.',
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-[#080b12] text-white antialiased overflow-x-hidden">
@@ -125,9 +100,6 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
             <button onClick={() => scrollTo('services')} className="hover:text-white transition-colors">
               Hvad jeg hjælper med
-            </button>
-            <button onClick={() => scrollTo('process')} className="hover:text-white transition-colors">
-              Processen
             </button>
             <button onClick={() => scrollTo('booking')} className="hover:text-white transition-colors">
               Book kald
@@ -157,9 +129,6 @@ export default function App() {
           <div className="md:hidden bg-[#0d1120]/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
             <button onClick={() => scrollTo('services')} className="text-left hover:text-white transition-colors py-1">
               Hvad jeg hjælper med
-            </button>
-            <button onClick={() => scrollTo('process')} className="text-left hover:text-white transition-colors py-1">
-              Processen
             </button>
             <button onClick={() => scrollTo('booking')} className="text-left hover:text-white transition-colors py-1">
               Book kald
@@ -287,59 +256,6 @@ export default function App() {
                   <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
                   <p className="text-sm text-white/50 leading-relaxed max-w-[15rem]">{text}</p>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* PROCESS */}
-      <div id="process" className="relative z-10 py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <FadeIn className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Processen</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Sådan løfter vi{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                dit niveau
-              </span>
-            </h2>
-            <p className="text-white/50 text-base">
-              Fra idé og tvivl til mere klarhed, bedre lyd og reel fremdrift.
-            </p>
-          </FadeIn>
-
-          <div className="flex flex-col gap-4">
-            {processSteps.map(({ num, title, desc }, idx) => (
-              <FadeIn key={num} delay={idx * 80}>
-                <button
-                  onClick={() => setExpandedProcess(expandedProcess === idx ? null : idx)}
-                  className="w-full text-left group flex flex-col p-7 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm hover:bg-white/7 hover:border-blue-500/25 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.08)]"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-6 flex-1">
-                      <span className="text-3xl font-extrabold bg-gradient-to-br from-blue-400/60 to-cyan-400/40 bg-clip-text text-transparent leading-none select-none min-w-[3.5rem]">
-                        {num}
-                      </span>
-                      <div className="w-px h-8 bg-white/10 flex-shrink-0" />
-                      <p className="text-base sm:text-lg font-semibold text-white/90 group-hover:text-white transition-colors">
-                        {title}
-                      </p>
-                    </div>
-                    <ChevronDown
-                      size={18}
-                      className={`text-white/30 group-hover:text-blue-400 transition-all duration-300 flex-shrink-0 ${
-                        expandedProcess === idx ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </div>
-
-                  {expandedProcess === idx && (
-                    <div className="mt-5 pt-5 border-t border-white/10 ml-[calc(3.5rem+24px)]">
-                      <p className="text-white/60 leading-relaxed text-sm">{desc}</p>
-                    </div>
-                  )}
-                </button>
               </FadeIn>
             ))}
           </div>
