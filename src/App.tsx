@@ -287,21 +287,21 @@ export default function App() {
                 name: 'MGZ',
                 image: './testimonials/mgz.png',
                 quote:
-                  'Jeg blev faktisk lidt chokeret, da du kom med et flow. Jeg tænkte bare: "Shit, han har virkelig styr på, hvad han laver."',
+                  'Jeg var faktisk lidt i shok, da du kom med det flow. Jeg tænkte bare: "Shit, han har faktisk styr på, hvad han laver"',
                 delay: 0,
               },
               {
                 name: 'VEGA',
                 image: './testimonials/vega.jpg',
                 quote:
-                  'Du har været der fra starten. Det gav mig virkelig et selvtillidsboost, og det betyder meget, at jeg faktisk har færdiggjort noget.',
+                  'Du har jo været der fra starten af. Det gav mig virkelig et form for selvtillidsboost, og det betyder meget, at jeg faktisk har færdiggjort noget.',
                 delay: 100,
               },
               {
                 name: 'Magnus Nonbo',
                 image: './testimonials/magnus-nonbo.jpg',
                 quote:
-                  'Jeg ville have ramt den samme væg igen og igen. Men når man først får vist, hvordan man kommer igennem den, bliver det meget nemmere.',
+                  'Jeg ville have ramt den samme væg igen og igen. Men da jeg først får vist, hvordan man kommer igennem den væg, bliver det meget nemmere.',
                 delay: 200,
               },
             ].map(({ name, image, quote, delay }) => (
