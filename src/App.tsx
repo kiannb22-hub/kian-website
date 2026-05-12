@@ -185,7 +185,7 @@ export default function App() {
               className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight mb-8"
               style={{ animation: 'fadeUp 0.8s ease 0.1s forwards', opacity: 0 }}
             >
-              Få din musik{' '}
+              Få din sang{' '}
               <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
                 helt i mål
               </span>
@@ -195,7 +195,7 @@ export default function App() {
               className="text-lg sm:text-xl text-white/55 max-w-xl leading-relaxed"
               style={{ animation: 'fadeUp 0.8s ease 0.2s forwards', opacity: 0 }}
             >
-              Jeg hjælper upcoming artister med at finde deres lyd, blive skarpere i studiet og få deres sange færdige.
+              Hvis du har en idé, et hook eller en demo liggende, men ikke helt ved, hvordan du får den færdig, hjælper jeg dig med at finde retningen, skrive skarpere og få sangen til at føles rigtig.
             </p>
           </div>
 
@@ -206,14 +206,14 @@ export default function App() {
           >
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                Se hvordan jeg kan{' '}
+                Se om det her er det, du{' '}
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                  hjælpe dig
+                  mangler
                 </span>
               </h3>
               <p className="text-white/55 text-base leading-relaxed">
-                En kort video hvor jeg forklarer, hvordan jeg hjælper upcoming artister med at finde deres lyd, blive
-                skarpere i studiet og få deres musik færdig.
+                I videoen forklarer jeg, hvordan vi kan tage din idé fra halvfærdig til noget, der føles mere færdigt
+                i lyd, tekst, performance og retning.
               </p>
             </div>
 
