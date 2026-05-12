@@ -60,7 +60,7 @@ function FadeIn({
 }
 
 const CALENDLY_URL = 'https://calendly.com/kian-kbmediax/30min';
-const INSTAGRAM_URL = 'https://www.instagram.com/';
+const INSTAGRAM_URL = 'https://www.instagram.com/kiannoriblicher/';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -101,6 +101,9 @@ export default function App() {
             <button onClick={() => scrollTo('services')} className="hover:text-white transition-colors">
               Hvad jeg hjælper med
             </button>
+            <button onClick={() => scrollTo('testimonials')} className="hover:text-white transition-colors">
+              Hvad andre siger
+            </button>
             <button onClick={() => scrollTo('booking')} className="hover:text-white transition-colors">
               Book kald
             </button>
@@ -129,6 +132,9 @@ export default function App() {
           <div className="md:hidden bg-[#0d1120]/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
             <button onClick={() => scrollTo('services')} className="text-left hover:text-white transition-colors py-1">
               Hvad jeg hjælper med
+            </button>
+            <button onClick={() => scrollTo('testimonials')} className="text-left hover:text-white transition-colors py-1">
+              Hvad andre siger
             </button>
             <button onClick={() => scrollTo('booking')} className="text-left hover:text-white transition-colors py-1">
               Book kald
@@ -263,7 +269,7 @@ export default function App() {
       </div>
 
       {/* TESTIMONIALS */}
-      <div className="relative z-10 py-24 px-6">
+      <div id="testimonials" className="relative z-10 py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-14">
             <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Anmeldelser</p>
@@ -372,36 +378,40 @@ export default function App() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           <div className="flex flex-col items-center md:items-start gap-1">
             <span className="text-xl font-bold tracking-widest text-white">KIAN</span>
-            <span className="text-xs text-white/25 tracking-wide">KB Media</span>
+            <span className="text-xs text-white/25 tracking-wide">KB Sound</span>
             <p className="text-xs text-white/35 mt-1">
-              Artist Development • Producer • Creative Coach
+              Artist development • Produktion • Studie-retning
             </p>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-white/40">
+          <div className="flex items-center gap-3 text-sm">
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
+              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/70 transition-all hover:border-pink-400/40 hover:bg-white/10 hover:text-white hover:shadow-[0_0_22px_rgba(236,72,153,0.18)]"
             >
-              <Instagram size={15} />
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#515bd4] text-white">
+                <Instagram size={15} />
+              </span>
               Instagram
             </a>
             <a
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
+              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/70 transition-all hover:border-cyan-300/40 hover:bg-white/10 hover:text-white hover:shadow-[0_0_22px_rgba(34,211,238,0.16)]"
             >
-              <CalendarDays size={15} />
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white">
+                <CalendarDays size={15} />
+              </span>
               Calendly
             </a>
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-xs text-white/20">
-          &copy; {new Date().getFullYear()} KB Media. Alle rettigheder forbeholdes.
+          &copy; {new Date().getFullYear()} KB Sound. Alle rettigheder forbeholdes.
         </div>
       </footer>
 
