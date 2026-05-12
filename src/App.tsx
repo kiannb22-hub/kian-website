@@ -371,24 +371,24 @@ export default function App() {
           <FadeIn className="text-center mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Første skridt</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
-              Lad os lige høre, hvor du er{' '}
+              Fortæl mig hvor du står{' '}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                 med musikken
               </span>
             </h2>
             <p className="text-white/50 text-base leading-relaxed max-w-md mx-auto">
-              Det behøver ikke være stort eller formelt. Vi tager bare et kort kald, snakker om din lyd, dine idéer og
-              hvor du sidder fast, og så finder vi ud af, om jeg kan hjælpe dig videre.
+              Vi tager et kort kald og snakker om din lyd, dine idéer og hvor du er lige nu. Så finder vi stille og
+              roligt ud af, om jeg kan hjælpe dig videre.
             </p>
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="rounded-3xl border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden p-6 sm:p-8">
-              <div className="w-full rounded-2xl overflow-hidden bg-[#0d1120] border border-white/8">
+            <div className="rounded-3xl border border-white/10 bg-white/4 backdrop-blur-sm overflow-hidden p-3 sm:p-4">
+              <div className="w-full rounded-2xl overflow-hidden bg-white border border-white/10">
                 <iframe
-                  src={`${CALENDLY_URL}?embed_domain=kian.com&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&background_color=080b12&text_color=ffffff&primary_color=3b82f6`}
+                  src={`${CALENDLY_URL}?embed_domain=kbmediax.dk&embed_type=Inline&hide_gdpr_banner=1&primary_color=2563eb`}
                   width="100%"
-                  height="760"
+                  height="790"
                   scrolling="no"
                   frameBorder="0"
                   title="Book kald med KIAN"
@@ -418,7 +418,7 @@ export default function App() {
             <span className="text-xl font-bold tracking-widest text-white">KIAN</span>
             <span className="text-xs text-white/25 tracking-wide">KB Sound</span>
             <p className="text-xs text-white/35 mt-1">
-              Artist development • Produktion • Studie-retning
+              Artist development • Produktion • Musik-retning
             </p>
           </div>
 
