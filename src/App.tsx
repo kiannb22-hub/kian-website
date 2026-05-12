@@ -278,21 +278,27 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                name: 'Artist 1',
-                quote: 'KIAN hjalp mig med at finde min lyd. Nu ved jeg præcis, hvad jeg skal fokusere på.',
+                name: 'MGZ',
+                image: './testimonials/mgz.png',
+                quote:
+                  'Jeg var faktisk lidt i chok, fordi du kom med et flow, og så var jeg sådan der: "Shit, han har styr på hvad han laver, ham der."',
                 delay: 0,
               },
               {
-                name: 'Artist 2',
-                quote: 'Mine hooks er blevet skarpere, og jeg føler mig langt mere klar som artist.',
+                name: 'VEGA',
+                image: './testimonials/vega.jpg',
+                quote:
+                  'Du har været der fra starten af. Det har bare givet mig et selvtillidsboost, og det gør jo virkelig noget, at jeg har færdiggjort noget.',
                 delay: 100,
               },
               {
-                name: 'Artist 3',
-                quote: 'Før tænkte jeg for meget. Nu har jeg en plan, en retning og musik der faktisk bliver færdigt.',
+                name: 'Magnus Nonbo',
+                image: './testimonials/magnus-nonbo.jpg',
+                quote:
+                  'Jeg ville have ramt den samme væg hver gang. Men når man har fået vist, hvordan man kommer igennem den væg, så synes jeg, at det gør det meget nemmere.',
                 delay: 200,
               },
-            ].map(({ name, quote, delay }) => (
+            ].map(({ name, image, quote, delay }) => (
               <FadeIn key={name} delay={delay}>
                 <div className="h-full p-7 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm flex flex-col gap-5 hover:border-blue-500/25 hover:bg-white/6 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.10)] hover:-translate-y-1">
                   <div className="flex gap-1">
@@ -302,9 +308,11 @@ export default function App() {
                   </div>
                   <p className="text-white/70 text-sm leading-relaxed flex-1 italic">"{quote}"</p>
                   <div className="flex items-center gap-3 pt-2 border-t border-white/8">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/40 to-cyan-400/20 border border-white/10 flex items-center justify-center text-xs font-bold text-blue-300">
-                      {name[0]}
-                    </div>
+                    <img
+                      src={image}
+                      alt={name}
+                      className="h-10 w-10 rounded-full object-cover border border-white/10"
+                    />
                     <span className="text-sm font-medium text-white/60">{name}</span>
                   </div>
                 </div>
