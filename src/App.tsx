@@ -383,10 +383,10 @@ export default function App() {
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white shadow-[0_22px_70px_rgba(0,0,0,0.34)]">
+            <div className="mx-auto max-w-[760px] overflow-hidden rounded-lg bg-transparent">
               <iframe
                 src={`${CALENDLY_URL}?embed_domain=kbmediax.dk&embed_type=Inline&hide_gdpr_banner=1&primary_color=0069ff`}
-                className="block h-[720px] w-full sm:h-[790px]"
+                className="block h-[590px] w-full sm:h-[560px]"
                 scrolling="no"
                 frameBorder="0"
                 title="Book kald med KIAN"
