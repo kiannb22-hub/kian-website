@@ -257,25 +257,25 @@ export default function App() {
               {
                 icon: <PenTool size={22} />,
                 title: 'Sangskrivning',
-                text: 'Hooks, struktur, storytelling og idéer der faktisk bliver færdige.',
+                text: 'Du har måske idéen. Jeg hjælper dig med at finde linjerne, hooket og vinklen, så sangen faktisk rammer.',
                 delay: 0,
               },
               {
                 icon: <Headphones size={22} />,
                 title: 'Studie-session',
-                text: 'Produktion, indspilning, lyd og retning i studiet.',
+                text: 'Du skal ikke bare ind og indspille. Du skal ind og forstå, hvorfor det virker, og hvordan det bliver bedre.',
                 delay: 80,
               },
               {
                 icon: <Mic size={22} />,
                 title: 'Flow & performance',
-                text: 'Delivery, vokal, energi og hvordan du lyder mere sikker.',
+                text: 'Din tekst kan være god, men hvis du ikke leverer den rigtigt, mærker folk den ikke. Det arbejder vi med.',
                 delay: 160,
               },
               {
                 icon: <Video size={22} />,
                 title: 'Artist-brand & content',
-                text: 'Sociale medier, visuel retning og content omkring din musik.',
+                text: 'Hvis sangen er fed, skal folk også forstå, hvorfor de skal lytte. Vi gør din musik nemmere at opdage.',
                 delay: 240,
               },
             ].map(({ icon, title, text, delay }) => (
@@ -285,7 +285,7 @@ export default function App() {
                     {icon}
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed">{text}</p>
+                  <p className="text-sm text-white/50 leading-relaxed max-w-[15rem]">{text}</p>
                 </div>
               </FadeIn>
             ))}
