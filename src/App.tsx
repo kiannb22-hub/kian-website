@@ -287,7 +287,7 @@ export default function App() {
                 name: 'MGZ',
                 image: './testimonials/mgz.png',
                 quote:
-                  'Jeg var faktisk lidt i shok, da du kom med det flow. Jeg tænkte bare: "Shit, han har faktisk styr på, hvad han laver"',
+                  'Jeg var faktisk lidt i shok, da du kom med det flow der. Jeg tænkte bare: "Shit, han har faktisk styr på, hvad han laver ham her"',
                 delay: 0,
               },
               {
