@@ -82,8 +82,8 @@ export default function App() {
   const processSteps = [
     {
       num: '01',
-      title: 'Vi finder din lyd og retning',
-      desc: 'Vi finder ud af, hvad der klæder dig bedst som artist — både i lyd, vibe, energi og retning. Målet er, at du ikke bare lyder god, men lyder som dig.',
+      title: 'Vi finder din artist-retning',
+      desc: 'Vi starter med din musik, dine referencer og det udtryk, du gerne vil ramme. Sammen finder vi ud af, hvilke beats, flows, vokalvalg, hooks og visuelle idéer der passer til dig, så du får en klar retning at bygge videre på.',
     },
     {
       num: '02',
