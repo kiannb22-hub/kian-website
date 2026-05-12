@@ -7,7 +7,6 @@ import {
   Instagram,
   CalendarDays,
   ChevronDown,
-  Play,
   Star,
   Menu,
   X,
@@ -218,18 +217,13 @@ export default function App() {
               </p>
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-blue-500/5 aspect-video flex flex-col items-center justify-center gap-3 group cursor-default hover:border-blue-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:scale-110 transition-transform duration-300">
-                <Play size={20} className="text-white ml-0.5" />
-              </div>
-              <p className="text-sm text-white/50 text-center px-4">Klik for at se video</p>
-              <div
-                className="absolute inset-0 opacity-[0.03]"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-                  backgroundSize: '40px 40px',
-                }}
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-black aspect-video hover:border-blue-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/QtyuUi--zgU6"
+                title="KIAN VSL"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
               />
             </div>
           </div>
