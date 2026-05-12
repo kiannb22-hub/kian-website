@@ -325,6 +325,47 @@ export default function App() {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={150} className="mt-20">
+            <div className="text-center mb-10">
+              <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Fra sessions</p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                Små glimt fra{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  arbejdet i studiet
+                </span>
+              </h3>
+              <p className="text-white/45 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mt-3">
+                Ikke nødvendigvis artisterne fra citaterne ovenover — bare ægte øjeblikke fra sessions med folk, jeg
+                har arbejdet med.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
+              {[
+                './videos/studio-mgz.mp4',
+                './videos/studio-lulu.mp4',
+                './videos/studio-kristoffer-due.mp4',
+              ].map((src, idx) => (
+                <div
+                  key={src}
+                  className="relative aspect-[9/16] overflow-hidden rounded-3xl border border-white/10 bg-white/4 shadow-[0_0_30px_rgba(59,130,246,0.08)]"
+                >
+                  <video
+                    className="h-full w-full object-cover"
+                    src={src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-label={`Studio session glimt ${idx + 1}`}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080b12]/35 via-transparent to-transparent" />
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </div>
 
