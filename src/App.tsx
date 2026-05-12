@@ -363,7 +363,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           <div className="flex flex-col items-center md:items-start gap-1">
             <span className="text-xl font-bold tracking-widest text-white">KIAN</span>
-            <span className="text-xs text-white/25 tracking-wide">KB Sound</span>
+            <span className="text-xs text-white/25 tracking-wide">KB Media</span>
             <p className="text-xs text-white/35 mt-1">
               Artist Development • Producer • Creative Coach
             </p>
@@ -392,7 +392,7 @@ export default function App() {
         </div>
 
         <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-xs text-white/20">
-          &copy; {new Date().getFullYear()} KB Sound. Alle rettigheder forbeholdes.
+          &copy; {new Date().getFullYear()} KB Media. Alle rettigheder forbeholdes.
         </div>
       </footer>
 
