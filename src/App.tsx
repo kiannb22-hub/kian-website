@@ -328,23 +328,19 @@ export default function App() {
 
           <FadeIn delay={150} className="mt-20">
             <div className="text-center mb-10">
-              <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Fra sessions</p>
+              <p className="text-sm uppercase tracking-[0.28em] text-blue-400/75 mb-3 font-semibold">Fra sessions</p>
               <h3 className="text-2xl sm:text-3xl font-bold text-white">
                 Små glimt fra{' '}
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                   arbejdet i studiet
                 </span>
               </h3>
-              <p className="text-white/45 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mt-3">
-                Ikke nødvendigvis artisterne fra citaterne ovenover — bare ægte øjeblikke fra sessions med folk, jeg
-                har arbejdet med.
-              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
               {[
                 './videos/studio-mgz.mp4',
-                './videos/studio-lulu.mp4',
+                './videos/studio-jess.mp4',
                 './videos/studio-kristoffer-due.mp4',
               ].map((src, idx) => (
                 <div
@@ -392,7 +388,8 @@ export default function App() {
                 <iframe
                   src={`${CALENDLY_URL}?embed_domain=kian.com&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&background_color=080b12&text_color=ffffff&primary_color=3b82f6`}
                   width="100%"
-                  height="600"
+                  height="760"
+                  scrolling="no"
                   frameBorder="0"
                   title="Book kald med KIAN"
                 />
