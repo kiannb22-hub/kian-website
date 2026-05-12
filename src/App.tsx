@@ -326,15 +326,16 @@ export default function App() {
       <div id="booking" className="relative z-10 py-28 px-6">
         <div className="max-w-3xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Book</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Første skridt</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
-              Klar til at tage din musik{' '}
+              Lad os lige høre, hvor du er{' '}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                seriøst?
+                med musikken
               </span>
             </h2>
             <p className="text-white/50 text-base leading-relaxed max-w-md mx-auto">
-              Book et kort kald, hvis du vil finde ud af, om jeg kan hjælpe dig med din musik.
+              Det behøver ikke være stort eller formelt. Vi tager bare et kort kald, snakker om din lyd, dine idéer og
+              hvor du sidder fast, og så finder vi ud af, om jeg kan hjælpe dig videre.
             </p>
           </FadeIn>
 
@@ -357,7 +358,7 @@ export default function App() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold text-base hover:opacity-90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.45)] active:scale-95"
                 >
-                  Book via Calendly
+                  Find en tid
                   <CalendarDays size={16} />
                 </a>
               </div>
