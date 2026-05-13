@@ -98,11 +98,11 @@ export default function App() {
           <span className="text-xl font-bold tracking-widest text-white">KIAN</span>
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
-            <button onClick={() => scrollTo('services')} className="hover:text-white transition-colors">
-              Hvad jeg hjælper med
-            </button>
             <button onClick={() => scrollTo('testimonials')} className="hover:text-white transition-colors">
               Hvad andre siger
+            </button>
+            <button onClick={() => scrollTo('services')} className="hover:text-white transition-colors">
+              Hvad jeg hjælper med
             </button>
             <button onClick={() => scrollTo('booking')} className="hover:text-white transition-colors">
               Book kald
@@ -130,11 +130,11 @@ export default function App() {
 
         {menuOpen && (
           <div className="md:hidden bg-[#0d1120]/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
-            <button onClick={() => scrollTo('services')} className="text-left hover:text-white transition-colors py-1">
-              Hvad jeg hjælper med
-            </button>
             <button onClick={() => scrollTo('testimonials')} className="text-left hover:text-white transition-colors py-1">
               Hvad andre siger
+            </button>
+            <button onClick={() => scrollTo('services')} className="text-left hover:text-white transition-colors py-1">
+              Hvad jeg hjælper med
             </button>
             <button onClick={() => scrollTo('booking')} className="text-left hover:text-white transition-colors py-1">
               Book kald
@@ -212,61 +212,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* SERVICES */}
-      <div id="services" className="relative z-10 py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <FadeIn className="text-center mb-14">
-            <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Services</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Hvad{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                KIAN hjælper med
-              </span>
-            </h2>
-            <p className="text-white/50 text-base">Det her er de vigtigste områder, jeg hjælper artister med.</p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                icon: <PenTool size={22} />,
-                title: 'Sangskrivning',
-                text: 'Du har måske idéen. Jeg hjælper dig med at finde linjerne, hooket og vinklen, så sangen faktisk rammer.',
-                delay: 0,
-              },
-              {
-                icon: <Headphones size={22} />,
-                title: 'Studie-session',
-                text: 'Du skal ikke bare ind og indspille. Du skal ind og forstå, hvorfor det virker, og hvordan det bliver bedre.',
-                delay: 80,
-              },
-              {
-                icon: <Mic size={22} />,
-                title: 'Flow & performance',
-                text: 'Din tekst kan være god, men hvis du ikke leverer den rigtigt, mærker folk den ikke. Det arbejder vi med.',
-                delay: 160,
-              },
-              {
-                icon: <Video size={22} />,
-                title: 'Artist-brand & content',
-                text: 'Hvis sangen er fed, skal folk også forstå, hvorfor de skal lytte. Vi gør din musik nemmere at opdage.',
-                delay: 240,
-              },
-            ].map(({ icon, title, text, delay }) => (
-              <FadeIn key={title} delay={delay}>
-                <div className="group h-full p-6 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm hover:bg-white/7 hover:border-blue-500/30 transition-all duration-300 cursor-default hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] hover:-translate-y-1">
-                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-400/10 border border-blue-500/20 flex items-center justify-center text-blue-300 mb-5 group-hover:scale-110 transition-transform duration-300">
-                    {icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed max-w-[15rem]">{text}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* TESTIMONIALS */}
       <div id="testimonials" className="relative z-10 py-24 px-6">
@@ -362,6 +307,61 @@ export default function App() {
               ))}
             </div>
           </FadeIn>
+        </div>
+      </div>
+
+      {/* SERVICES */}
+      <div id="services" className="relative z-10 py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn className="text-center mb-14">
+            <p className="text-xs uppercase tracking-[0.25em] text-blue-400/70 mb-3 font-medium">Services</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              Hvad{' '}
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                KIAN hjælper med
+              </span>
+            </h2>
+            <p className="text-white/50 text-base">Det her er de vigtigste områder, jeg hjælper artister med.</p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                icon: <PenTool size={22} />,
+                title: 'Sangskrivning',
+                text: 'Du har måske idéen. Jeg hjælper dig med at finde linjerne, hooket og vinklen, så sangen faktisk rammer.',
+                delay: 0,
+              },
+              {
+                icon: <Headphones size={22} />,
+                title: 'Studie-session',
+                text: 'Du skal ikke bare ind og indspille. Du skal ind og forstå, hvorfor det virker, og hvordan det bliver bedre.',
+                delay: 80,
+              },
+              {
+                icon: <Mic size={22} />,
+                title: 'Flow & performance',
+                text: 'Din tekst kan være god, men hvis du ikke leverer den rigtigt, mærker folk den ikke. Det arbejder vi med.',
+                delay: 160,
+              },
+              {
+                icon: <Video size={22} />,
+                title: 'Artist-brand & content',
+                text: 'Hvis sangen er fed, skal folk også forstå, hvorfor de skal lytte. Vi gør din musik nemmere at opdage.',
+                delay: 240,
+              },
+            ].map(({ icon, title, text, delay }) => (
+              <FadeIn key={title} delay={delay}>
+                <div className="group h-full p-6 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm hover:bg-white/7 hover:border-blue-500/30 transition-all duration-300 cursor-default hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] hover:-translate-y-1">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-400/10 border border-blue-500/20 flex items-center justify-center text-blue-300 mb-5 group-hover:scale-110 transition-transform duration-300">
+                    {icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed max-w-[15rem]">{text}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
 
