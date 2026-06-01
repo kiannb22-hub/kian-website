@@ -59,7 +59,7 @@ function FadeIn({
   );
 }
 
-const CALENDLY_URL = 'https://calendly.com/kian-kbmediax/30min';
+const CALENDLY_URL = 'https://calendly.com/kian-blicher/kald-med-kian';
 const INSTAGRAM_URL = 'https://www.instagram.com/kiannoriblicher/';
 
 export default function App() {
