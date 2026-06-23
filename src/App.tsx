@@ -59,6 +59,50 @@ function FadeIn({
   );
 }
 
+function SessionVideo({ src, label }: { src: string; label: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px 0px' }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative aspect-[9/16] overflow-hidden rounded-3xl border border-white/10 bg-white/4 shadow-[0_0_30px_rgba(59,130,246,0.08)]"
+    >
+      {shouldLoad && (
+        <video
+          className="h-full w-full object-cover"
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-label={label}
+        />
+      )}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080b12]/35 via-transparent to-transparent" />
+    </div>
+  );
+}
+
 const CALENDLY_URL = 'https://calendly.com/kian-blicher/kald-med-kian';
 const INSTAGRAM_URL = 'https://www.instagram.com/kiannoriblicher/';
 
@@ -288,22 +332,11 @@ export default function App() {
                 './videos/studio-jess.mp4',
                 './videos/studio-kristoffer-due.mp4',
               ].map((src, idx) => (
-                <div
+                <SessionVideo
                   key={src}
-                  className="relative aspect-[9/16] overflow-hidden rounded-3xl border border-white/10 bg-white/4 shadow-[0_0_30px_rgba(59,130,246,0.08)]"
-                >
-                  <video
-                    className="h-full w-full object-cover"
-                    src={src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label={`Studio session glimt ${idx + 1}`}
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080b12]/35 via-transparent to-transparent" />
-                </div>
+                  src={src}
+                  label={`Studio session glimt ${idx + 1}`}
+                />
               ))}
             </div>
           </FadeIn>
