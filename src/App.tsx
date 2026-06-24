@@ -9,6 +9,7 @@ import {
   Star,
   Menu,
   X,
+  Play,
 } from 'lucide-react';
 
 function useInView(threshold = 0.15) {
@@ -18,6 +19,10 @@ function useInView(threshold = 0.15) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (!('IntersectionObserver' in window)) {
+      setInView(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -66,6 +71,10 @@ function SessionVideo({ src, label }: { src: string; label: string }) {
   useEffect(() => {
     const element = containerRef.current;
     if (!element) return;
+    if (!('IntersectionObserver' in window)) {
+      setShouldLoad(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -74,7 +83,7 @@ function SessionVideo({ src, label }: { src: string; label: string }) {
           observer.disconnect();
         }
       },
-      { rootMargin: '300px 0px' }
+      { rootMargin: '100px 0px' }
     );
 
     observer.observe(element);
@@ -106,6 +115,87 @@ function SessionVideo({ src, label }: { src: string; label: string }) {
 const CALENDLY_URL = 'https://calendly.com/kian-blicher/kald-med-kian';
 const INSTAGRAM_URL = 'https://www.instagram.com/kiannoriblicher/';
 
+function YouTubeVideo() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div className="relative aspect-video overflow-hidden rounded-3xl border border-white/10 bg-black">
+      {isPlaying ? (
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src="https://www.youtube-nocookie.com/embed/5G3aE8NMpSA?autoplay=1"
+          title="KIAN VSL"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      ) : (
+        <button
+          type="button"
+          className="group absolute inset-0 h-full w-full"
+          onClick={() => setIsPlaying(true)}
+          aria-label="Afspil video"
+        >
+          <img
+            className="h-full w-full object-cover"
+            src="https://i.ytimg.com/vi/5G3aE8NMpSA/maxresdefault.jpg"
+            alt="KIAN i studiet"
+          />
+          <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20" />
+          <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-red-600 text-white shadow-lg transition-transform group-hover:scale-105">
+            <Play size={28} fill="currentColor" />
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+function CalendlyEmbed() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+    if (!('IntersectionObserver' in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="h-[700px] w-full sm:h-[640px]">
+      {shouldLoad ? (
+        <iframe
+          src={`${CALENDLY_URL}?embed_domain=kbsound.dk&embed_type=Inline&hide_gdpr_banner=1&primary_color=0069ff`}
+          className="block h-full w-full"
+          scrolling="no"
+          frameBorder="0"
+          loading="lazy"
+          title="Book kald med KIAN"
+        />
+      ) : (
+        <div className="flex h-full items-center justify-center bg-white/5 text-sm text-white/45">
+          Kalenderen indlæses, når du nærmer dig
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -123,8 +213,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#080b12] text-white antialiased overflow-x-hidden">
-      {/* Background ambient blobs */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Keep expensive blur layers off mobile Safari. */}
+      <div className="fixed inset-0 pointer-events-none z-0 hidden md:block">
         <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
         <div className="absolute top-[30%] right-[-200px] w-[500px] h-[500px] rounded-full bg-cyan-500/8 blur-[120px]" />
         <div className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] rounded-full bg-blue-700/8 blur-[100px]" />
@@ -134,7 +224,7 @@ export default function App() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#080b12]/90 backdrop-blur-xl border-b border-white/5 shadow-lg'
+            ? 'bg-[#080b12]/95 md:backdrop-blur-xl border-b border-white/5 shadow-lg'
             : 'bg-transparent'
         }`}
       >
@@ -173,7 +263,7 @@ export default function App() {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden bg-[#0d1120]/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
+          <div className="md:hidden bg-[#0d1120] border-b border-white/5 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
             <button onClick={() => scrollTo('testimonials')} className="text-left hover:text-white transition-colors py-1">
               Hvad andre siger
             </button>
@@ -236,15 +326,7 @@ export default function App() {
               </p>
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-black aspect-video hover:border-blue-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/5G3aE8NMpSA"
-                title="KIAN VSL"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
+            <YouTubeVideo />
           </div>
 
           {/* Scroll indicator */}
@@ -295,7 +377,7 @@ export default function App() {
               },
             ].map(({ name, image, quote, delay }) => (
               <FadeIn key={name} delay={delay}>
-                <div className="h-full p-7 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm flex flex-col gap-5 hover:border-blue-500/25 hover:bg-white/6 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.10)] hover:-translate-y-1">
+                <div className="h-full p-7 rounded-3xl border border-white/8 bg-white/4 md:backdrop-blur-sm flex flex-col gap-5 hover:border-blue-500/25 hover:bg-white/6 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.10)] hover:-translate-y-1">
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={13} className="text-blue-400 fill-blue-400" />
@@ -385,7 +467,7 @@ export default function App() {
               },
             ].map(({ icon, title, text, delay }) => (
               <FadeIn key={title} delay={delay}>
-                <div className="group h-full p-6 rounded-3xl border border-white/8 bg-white/4 backdrop-blur-sm hover:bg-white/7 hover:border-blue-500/30 transition-all duration-300 cursor-default hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] hover:-translate-y-1">
+                <div className="group h-full p-6 rounded-3xl border border-white/8 bg-white/4 md:backdrop-blur-sm hover:bg-white/7 hover:border-blue-500/30 transition-all duration-300 cursor-default hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] hover:-translate-y-1">
                   <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-400/10 border border-blue-500/20 flex items-center justify-center text-blue-300 mb-5 group-hover:scale-110 transition-transform duration-300">
                     {icon}
                   </div>
@@ -417,13 +499,7 @@ export default function App() {
 
           <FadeIn delay={100}>
             <div className="mx-auto max-w-[1000px] overflow-hidden rounded-lg bg-transparent">
-              <iframe
-                src={`${CALENDLY_URL}?embed_domain=kbsound.dk&embed_type=Inline&hide_gdpr_banner=1&primary_color=0069ff`}
-                className="block h-[700px] w-full sm:h-[640px]"
-                scrolling="no"
-                frameBorder="0"
-                title="Book kald med KIAN"
-              />
+              <CalendlyEmbed />
             </div>
           </FadeIn>
         </div>
